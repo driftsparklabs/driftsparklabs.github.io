@@ -12,5 +12,18 @@
         "52:F6:94:DA:7A:D0:B6:02:0A:23:B2:81:E6:A6:7B:89:A6:1D:D1:AE:B1:A1:83:0F:8F:49:12:2E:59:BE:F3:64"
       ]
     }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.driftspark.labs.arrowwords",
+      "sha256_cert_fingerprints": [
+        "A6:DD:31:8E:48:5C:B6:45:11:5C:29:03:3C:AB:66:70:CE:BF:C0:DC:25:99:6C:94:CA:65:E5:FA:00:DF:BA:20",
+        "93:0E:D3:7D:F7:45:36:87:69:AF:1F:83:E6:37:9B:60:33:5D:31:F7:14:E5:70:CC:56:61:31:DC:98:A7:7C:FA"
+      ]
+    }
   }
 ]

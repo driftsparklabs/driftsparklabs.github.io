@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arrowword challenge</title>
+    <!-- One page per link would need a server; this one reads ?p=, ?t= and
+         ?s= from the URL instead. Not worth indexing: every URL is a variant. -->
+    <meta name="robots" content="noindex" />
+    <meta name="description" content="A friend sent you an arrowword puzzle. Can you beat their time?" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Arrowword challenge" />
+    <meta property="og:description" content="A friend sent you an arrowword puzzle. Can you beat their time?" />
+    <meta property="og:image" content="https://driftsparklabs.github.io/a/icon-en.png" />
+    <link rel="icon" id="favicon" href="icon-en.png" />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #fbfcfd;
+        --text: #17202b;
+        --muted: #5d6b7a;
+        --accent: #1d5a8a;
+        --accent-text: #ffffff;
+        --chip: #dbe7f1;
+      }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; }
+      body {
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      main {
+        width: 100%;
+        max-width: 420px;
+        padding: 40px 16px;
+        text-align: center;
+      }
+      .icon {
+        width: 96px;
+        height: 96px;
+        border-radius: 22px;
+        display: block;
+        margin: 0 auto 24px;
+      }
+      h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+        margin: 0 0 12px;
+      }
+      .time {
+        display: inline-block;
+        margin: 4px 0 20px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: var(--chip);
+        color: var(--accent);
+        font-weight: 700;
+        font-variant-numeric: tabular-nums;
+      }
+      .time[hidden] { display: none; }
+      .play {
+        display: block;
+        width: 100%;
+        padding: 16px 20px;
+        border-radius: 999px;
+        background: var(--accent);
+        color: var(--accent-text);
+        font-size: 1.15rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .play:active { transform: scale(0.98); }
+      .how { color: var(--muted); font-size: 0.95rem; margin: 16px 0 0; }
+      .other { color: var(--muted); font-size: 0.9rem; margin-top: 28px; }
+      .other[hidden] { display: none; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <img class="icon" id="icon" src="icon-en.png" alt="" width="96" height="96" />
+      <h1 id="title">A friend sent you an arrowword puzzle</h1>
+      <div class="time" id="time" hidden></div>
+      <a class="play" id="play" href="https://play.google.com/store/apps/details?id=com.driftspark.labs.arrowwords">Play the puzzle</a>
+      <p class="how" id="how">Opens in Arrowwords. Don't have it yet? Google Play opens, and the puzzle is waiting when you start the app. Free, and it works offline.</p>
+      <p class="other" id="other" hidden>Arrowwords is an Android app. Open this link on an Android phone to play the puzzle.</p>
+    </main>
+    <script>
+      // Keep in step with lib/core/challenge/challenge.dart in the Crosswords
+      // repo: the same p/t/s parameters, the same validation, the same m:ss.
+      // The page speaks the puzzle's language when it has it (a Dutch puzzle
+      // is for a Dutch speaker), else the browser's, else English.
+      var STRINGS = {
+        "en": {
+          "title": "A friend sent you an arrowword puzzle",
+          "time": "Time to beat: {t}",
+          "play": "Play the puzzle",
+          "how": "Opens in Arrowwords. Don't have it yet? Google Play opens, and the puzzle is waiting when you start the app. Free, and it works offline.",
+          "other": "Arrowwords is an Android app. Open this link on an Android phone to play the puzzle."
+        },
+        "nl": {
+          "title": "Een vriend stuurt je een zweedse puzzel",
+          "time": "Te verslaan: {t}",
+          "play": "Speel de puzzel",
+          "how": "Opent in de app Zweedse puzzel. Heb je die nog niet? Dan opent Google Play, en de puzzel staat klaar zodra je de app start. Gratis, en werkt ook offline.",
+          "other": "Zweedse puzzel is een Android-app. Open deze link op een Android-telefoon om de puzzel te spelen."
+        }
+      };
+      function pickLanguage(puzzleLang) {
+        if (STRINGS[puzzleLang]) return puzzleLang;
+        var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+        for (var i = 0; i < langs.length; i++) {
+          var base = String(langs[i]).toLowerCase().split("-")[0];
+          if (STRINGS[base]) return base;
+        }
+        return "en";
+      }
+      (function () {
+        var PACKAGE = "com.driftspark.labs.arrowwords";
+        var params = new URLSearchParams(location.search);
+        var id = params.get("p") || "";
+        if (!/^[a-z]{2,3}-[emh]-[0-9]{1,5}$/.test(id)) id = "";
+        var t = parseInt(params.get("t") || "", 10);
+        var hasTime = t > 0 && t <= 6 * 3600;
+        var s = parseInt(params.get("s") || "", 10);
+        var hasStars = s >= 1 && s <= 3;
+
+        var lang = pickLanguage(id.split("-")[0]);
+        var L = STRINGS[lang];
+        document.documentElement.lang = lang;
+        document.title = L.title;
+        document.getElementById("title").textContent = L.title;
+        document.getElementById("play").textContent = L.play;
+        document.getElementById("how").textContent = L.how;
+        document.getElementById("other").textContent = L.other;
+        // The app icon's clue words are in the puzzle language too.
+        var icon = lang === "nl" ? "icon-nl.png" : "icon-en.png";
+        document.getElementById("icon").src = icon;
+        document.getElementById("favicon").href = icon;
+
+        var query = id
+          ? "p=" + id + (hasTime ? "&t=" + t : "") + (hasStars ? "&s=" + s : "")
+          : "";
+
+        if (hasTime) {
+          var time = document.getElementById("time");
+          var stars = hasStars ? "  " + "★".repeat(s) + "☆".repeat(3 - s) : "";
+          time.textContent = L.time.replace("{t}", Math.floor(t / 60) + ":" + String(t % 60).padStart(2, "0")) + stars;
+          time.hidden = false;
+        }
+
+        // Play hands the referrer to the app on its first launch, which is how
+        // a fresh install opens straight on this puzzle.
+        var store = "https://play.google.com/store/apps/details?id=" + PACKAGE +
+          (query ? "&referrer=" + encodeURIComponent(query) : "");
+
+        var play = document.getElementById("play");
+        if (!/Android/i.test(navigator.userAgent)) {
+          play.href = store;
+          document.getElementById("other").hidden = false;
+          return;
+        }
+        // Chrome's intent:// form: opens the app when it is installed, and
+        // otherwise goes to browser_fallback_url, the store page with the
+        // referrer. Uses the app's own scheme rather than https, so it does
+        // not depend on App Links verification: this page is only ever seen
+        // when that verification did not take the link straight to the app.
+        play.href = "intent://open/a" + (query ? "?" + query : "") +
+          "#Intent;scheme=arrowwords;package=" + PACKAGE +
+          ";S.browser_fallback_url=" + encodeURIComponent(store) + ";end";
+      })();
+    </script>
+  </body>
+</html>
