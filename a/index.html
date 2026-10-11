@@ -124,13 +124,14 @@
         var PACKAGE = "com.driftspark.labs.arrowwords";
         var params = new URLSearchParams(location.search);
         var id = params.get("p") || "";
-        if (!/^[a-z]{2,3}-[emh]-[0-9]{1,5}$/.test(id)) id = "";
+        if (!/^[a-z]{2,4}-[emh]-[0-9]{1,5}$/.test(id)) id = "";
         var t = parseInt(params.get("t") || "", 10);
         var hasTime = t > 0 && t <= 6 * 3600;
         var s = parseInt(params.get("s") || "", 10);
         var hasStars = s >= 1 && s <= 3;
 
-        var lang = pickLanguage(id.split("-")[0]);
+        // "enus" is the American English set: English text.
+        var lang = pickLanguage(id.split("-")[0].replace(/^enus$/, "en"));
         var L = STRINGS[lang];
         document.documentElement.lang = lang;
         document.title = L.title;
