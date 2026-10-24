@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chess Coach: Openings — Chess Opening Trainer for Android</title>
     <meta name="description" content="A free chess opening trainer for Android. Drill the Sicilian, Caro-Kann, London System, Ruy Lopez and more move by move — and learn the why behind every move. Offline, no account, no subscription." />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/icon.png" />
     <link rel="canonical" href="https://driftsparklabs.github.io/chess-openings/" />
 
     <meta property="og:type" content="website" />
@@ -18,6 +20,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Chess Coach: Openings",
+      "image": "https://driftsparklabs.github.io/chess-openings/img/icon.png",
       "operatingSystem": "ANDROID",
       "applicationCategory": "EducationalApplication",
       "description": "A focused chess opening trainer. Drill 11 classic openings move by move as White or Black, with a hand-written explanation for every move.",
@@ -48,6 +51,9 @@
         margin-bottom: 56px;
       }
       .hero-copy { flex: 1 1 360px; }
+      .app-id { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; }
+      .app-id img { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+      .app-id span { font-size: 1.3rem; font-weight: 700; }
       .crumb { font-size: 0.9rem; margin: 0 0 24px; }
       .crumb a { color: #888; }
       h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; }
@@ -142,6 +148,10 @@
 
       <header class="hero">
         <div class="hero-copy">
+          <div class="app-id">
+            <img src="img/icon.png" width="256" height="256" alt="Chess Coach: Openings app icon" />
+            <span>Chess Coach: Openings</span>
+          </div>
           <h1>Learn the <em>why</em> behind every opening move</h1>
           <p class="pitch">
             Chess Coach: Openings is a free, focused opening trainer for

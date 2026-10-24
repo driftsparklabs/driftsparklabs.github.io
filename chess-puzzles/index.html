@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Chess Coach: Puzzles — Offline Chess Tactics Trainer for Android</title>
     <meta name="description" content="A chess tactics trainer for Android with 100,000 puzzles built in. Puzzles picked for your rating, 29 tactical motifs, a daily puzzle and real stats. Fully offline, no account, no subscription." />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/icon.png" />
     <link rel="canonical" href="https://driftsparklabs.github.io/chess-puzzles/" />
 
     <meta property="og:type" content="website" />
@@ -18,6 +20,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Chess Coach: Puzzles",
+      "image": "https://driftsparklabs.github.io/chess-puzzles/img/icon.png",
       "operatingSystem": "ANDROID",
       "applicationCategory": "GameApplication",
       "description": "A chess tactics trainer with 100,000 puzzles from real games, all stored inside the app. Puzzles are picked for your rating, 29 tactical motifs can be drilled one at a time, and a daily puzzle is the same for everyone.",
@@ -48,6 +51,9 @@
         margin-bottom: 56px;
       }
       .hero-copy { flex: 1 1 360px; }
+      .app-id { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; }
+      .app-id img { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+      .app-id span { font-size: 1.3rem; font-weight: 700; }
       .crumb { font-size: 0.9rem; margin: 0 0 24px; }
       .crumb a { color: #888; }
       h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; }
@@ -141,6 +147,10 @@
 
       <header class="hero">
         <div class="hero-copy">
+          <div class="app-id">
+            <img src="img/icon.png" width="256" height="256" alt="Chess Coach: Puzzles app icon" />
+            <span>Chess Coach: Puzzles</span>
+          </div>
           <h1>100,000 chess puzzles, <em>all</em> on your phone</h1>
           <p class="pitch">
             Chess Coach: Puzzles is a tactics trainer for Android. Every
