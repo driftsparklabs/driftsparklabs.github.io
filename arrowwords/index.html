@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Arrowwords: Arrowword Puzzles for Android</title>
-    <meta name="description" content="Arrowword puzzles like the ones in a puzzle magazine, with the clues inside the grid. Written in the language itself, not translated. Three levels, a built-in keyboard, and it plays offline." />
+    <meta name="description" content="Arrowword puzzles like the ones in a puzzle magazine, with the clues inside the grid. 3,000 puzzles in English, Dutch, German, Czech and Hungarian, each written in its own language. Three levels, a built-in keyboard, and it plays offline." />
     <link rel="canonical" href="https://driftsparklabs.github.io/arrowwords/" />
 
     <meta property="og:type" content="website" />
@@ -20,8 +20,9 @@
       "name": "Arrowwords",
       "operatingSystem": "ANDROID",
       "applicationCategory": "GameApplication",
-      "description": "Arrowword puzzles with the clues inside the grid, written in the language itself. Three levels, a built-in keyboard, help with hints, and every puzzle inside the app.",
+      "description": "Arrowword puzzles with the clues inside the grid: 500 puzzles each in American English, British English, Dutch, German, Czech and Hungarian, written in the language itself. Three levels, a built-in keyboard, free checking, and every puzzle inside the app.",
       "url": "https://driftsparklabs.github.io/arrowwords/",
+      "installUrl": "https://play.google.com/store/apps/details?id=com.driftspark.labs.arrowwords",
       "author": { "@type": "Organization", "name": "Driftspark Labs", "url": "https://driftsparklabs.github.io/" },
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
     }
@@ -51,14 +52,7 @@
       .crumb a { color: #888; }
       h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; }
       .pitch { font-size: 1.2rem; color: #555; margin: 0 0 24px; }
-      .soon {
-        display: inline-block;
-        border: 1px solid #e3e3e3;
-        border-radius: 999px;
-        background: #fff;
-        padding: 8px 18px;
-        font-weight: 600;
-      }
+      .store-badge img { height: 64px; display: block; }
       .store-note { font-size: 0.85rem; color: #888; margin-top: 8px; }
 
       .phone {
@@ -111,6 +105,7 @@
         padding: 40px 24px;
       }
       .cta p { color: #555; max-width: 480px; margin: 8px auto 24px; }
+      .cta .store-badge img { margin: 0 auto; }
 
       a { color: #1559c4; text-decoration: none; }
       a:hover { text-decoration: underline; }
@@ -119,7 +114,7 @@
 
       @media (prefers-color-scheme: dark) {
         body { color: #e8e8e8; background: #141414; }
-        .features li, .cta, .soon { background: #1d1d1d; border-color: #2a2a2a; }
+        .features li, .cta { background: #1d1d1d; border-color: #2a2a2a; }
         .features p, .pitch, .cta p { color: #aaa; }
         a { color: #6aa9ff; }
       }
@@ -138,11 +133,13 @@
           <h1>The arrowword from the puzzle magazine, on your phone</h1>
           <p class="pitch">
             The clue sits in a cell of the grid and an arrow shows where the
-            answer goes. The puzzles are written in the language itself, not
-            translated, and every one of them is inside the app. The first
-            puzzles are in Dutch; more languages will follow.
+            answer goes. 500 puzzles in American English and 500 in British
+            English, plus 500 each in Dutch, German, Czech and Hungarian.
+            Every set is written in its own language, not translated.
           </p>
-          <span class="soon">Coming soon to Google Play</span>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.driftspark.labs.arrowwords">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" />
+          </a>
           <p class="store-note">Free · Plays offline · No account · No subscription</p>
         </div>
 
@@ -153,11 +150,11 @@
       <h2>Easy to play</h2>
       <ul class="features">
         <li><b>Easy to read</b><p>The clue for the selected word is shown large above the keyboard, so you never have to read the small cells. Zoom the grid if that reads better.</p></li>
-        <li><b>Three levels</b><p>Easy, medium and hard. Harder puzzles have a bigger grid.</p></li>
-        <li><b>A built-in keyboard</b><p>No autocorrect getting in the way. Tap a cell twice to switch direction.</p></li>
-        <li><b>Help when you are stuck</b><p>Reveal a letter or a word, or check what you have filled in. That costs hints. You get free hints every day, and a short video earns you more.</p></li>
-        <li><b>No ads while you solve</b><p>There are never ads while you are solving a puzzle. Buy Unlimited once for no ads at all and unlimited hints. No subscription.</p></li>
-        <li><b>Play anywhere</b><p>All puzzles are inside the app. No internet and no account needed.</p></li>
+        <li><b>Three levels</b><p>Easy, medium and hard, all the same size. The higher the level, the rarer the words and the harder the clues. Packs of 20 get a little harder each time.</p></li>
+        <li><b>A built-in keyboard</b><p>No autocorrect getting in the way. It follows your phone's layout, such as QWERTY or AZERTY. Tap a cell twice to switch direction.</p></li>
+        <li><b>Help when you are stuck</b><p>Checking is free: wrong letters turn red. Revealing a letter or a word costs hints, and your hints are topped up to 10 every day.</p></li>
+        <li><b>Challenge a friend</b><p>After a puzzle, send the empty grid with your time. Your friend plays the same puzzle and sees the time to beat.</p></li>
+        <li><b>Play anywhere</b><p>All puzzles are inside the app. No internet and no account needed. Unlimited hints are a one-time purchase, no subscription.</p></li>
       </ul>
 
       <h2>See it in action</h2>
@@ -169,8 +166,8 @@
         </figure></li>
         <li><figure>
           <img class="phone" loading="lazy" src="img/results-light.jpg" width="540" height="960"
-               alt="The screen after a solved puzzle: the time, three stars, the number of mistakes and the help used" />
-          <figcaption>Stars for every puzzle</figcaption>
+               alt="The screen after a solved puzzle: the time, three stars, a card to challenge a friend, the streak, mistakes and help used" />
+          <figcaption>Stars, then challenge a friend</figcaption>
         </figure></li>
         <li><figure>
           <img class="phone" loading="lazy" src="img/play-dark.jpg" width="540" height="960"
@@ -187,8 +184,11 @@
 
       <div class="cta">
         <h2 style="margin-top:0">A puzzle with your coffee</h2>
-        <p>The app is coming soon to Google Play. Questions or ideas? We would like to hear them.</p>
-        <a href="mailto:driftspark.labs.app@gmail.com">driftspark.labs.app@gmail.com</a>
+        <p>Free on Google Play. Questions or ideas? We would like to hear them at
+          <a href="mailto:driftspark.labs.app@gmail.com">driftspark.labs.app@gmail.com</a>.</p>
+        <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.driftspark.labs.arrowwords">
+            <img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" />
+          </a>
       </div>
 
       <footer>
