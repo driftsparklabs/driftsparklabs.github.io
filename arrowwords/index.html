@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Arrowwords: Arrowword Puzzles for Android</title>
     <meta name="description" content="Arrowword puzzles like the ones in a puzzle magazine, with the clues inside the grid. 3,000 puzzles in English, Dutch, German, Czech and Hungarian, each written in its own language. Three levels, a built-in keyboard, and it plays offline." />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link rel="apple-touch-icon" href="img/icon.png" />
     <link rel="canonical" href="https://driftsparklabs.github.io/arrowwords/" />
 
     <meta property="og:type" content="website" />
@@ -18,6 +20,7 @@
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Arrowwords",
+      "image": "https://driftsparklabs.github.io/arrowwords/img/icon.png",
       "operatingSystem": "ANDROID",
       "applicationCategory": "GameApplication",
       "description": "Arrowword puzzles with the clues inside the grid: 500 puzzles each in American English, British English, Dutch, German, Czech and Hungarian, written in the language itself. Three levels, a built-in keyboard, free checking, and every puzzle inside the app.",
@@ -48,6 +51,9 @@
         margin-bottom: 56px;
       }
       .hero-copy { flex: 1 1 360px; }
+      .app-id { display: flex; align-items: center; gap: 14px; margin: 0 0 20px; }
+      .app-id img { width: 72px; height: 72px; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.18); }
+      .app-id span { font-size: 1.3rem; font-weight: 700; }
       .crumb { font-size: 0.9rem; margin: 0 0 24px; }
       .crumb a { color: #888; }
       h1 { font-size: 2.4rem; line-height: 1.15; margin: 0 0 12px; font-family: Georgia, "Times New Roman", serif; }
@@ -130,6 +136,10 @@
 
       <header class="hero">
         <div class="hero-copy">
+          <div class="app-id">
+            <img src="img/icon.png" width="256" height="256" alt="Arrowwords app icon" />
+            <span>Arrowwords</span>
+          </div>
           <h1>The arrowword from the puzzle magazine, on your phone</h1>
           <p class="pitch">
             The clue sits in a cell of the grid and an arrow shows where the
