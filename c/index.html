@@ -95,7 +95,7 @@
       // Keep in step with lib/core/challenge/challenge.dart: the same p/t
       // parameters, the same validation, the same m:ss format.
       // The friend reads this, not the sender, so it follows the browser's
-      // language. Same 24 languages as the app; Traditional Chinese for
+      // language. Same 27 languages as the app; Traditional Chinese for
       // zh-TW/HK/MO and zh-Hant, Simplified for the rest of zh.
       var STRINGS = {
         "en": {
@@ -252,6 +252,27 @@
           "how": "Chess Coach: Puzzles இல் திறக்கும். இன்னும் ஆப் இல்லையா? Google Play திறக்கும், ஆப்பைத் தொடங்கியதும் புதிர் காத்திருக்கும். இலவசம், ஆஃப்லைனிலும் வேலை செய்யும்.",
           "other": "Chess Coach: Puzzles ஒரு Android ஆப். புதிரைத் தீர்க்க இந்த இணைப்பை Android தொலைபேசியில் திறக்கவும்."
         },
+        "da": {
+          "title": "En ven udfordrer dig til en skakopgave",
+          "time": "Tid at slå: {t}",
+          "play": "Løs opgaven",
+          "how": "Åbner i Chess Coach: Puzzles. Har du ikke appen endnu? Så åbner Google Play, og opgaven venter på dig, når du starter appen. Gratis og virker offline.",
+          "other": "Chess Coach: Puzzles er en Android-app. Åbn linket på en Android-telefon for at løse opgaven."
+        },
+        "nb": {
+          "title": "En venn utfordrer deg til en sjakkoppgave",
+          "time": "Tid å slå: {t}",
+          "play": "Løs oppgaven",
+          "how": "Åpnes i Chess Coach: Puzzles. Har du ikke appen ennå? Da åpnes Google Play, og oppgaven venter på deg når du starter appen. Gratis, og virker offline.",
+          "other": "Chess Coach: Puzzles er en Android-app. Åpne lenken på en Android-telefon for å løse oppgaven."
+        },
+        "sv": {
+          "title": "En vän utmanar dig med ett schackproblem",
+          "time": "Tid att slå: {t}",
+          "play": "Lös problemet",
+          "how": "Öppnas i Chess Coach: Puzzles. Har du inte appen än? Då öppnas Google Play, och problemet väntar på dig när du startar appen. Gratis och fungerar offline.",
+          "other": "Chess Coach: Puzzles är en Android-app. Öppna länken på en Android-telefon för att lösa problemet."
+        },
         "zh": {
           "title": "好友向你发起了一道国际象棋习题挑战",
           "time": "目标用时：{t}",
@@ -275,6 +296,7 @@
             return /hant|-tw|-hk|-mo/.test(tag) ? "zh-Hant" : "zh";
           }
           var base = tag.split("-")[0];
+          if (base === "no" || base === "nn") base = "nb";
           if (STRINGS[base]) return base;
         }
         return "en";
